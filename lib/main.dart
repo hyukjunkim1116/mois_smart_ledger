@@ -104,7 +104,7 @@ class _UploadPageState extends State<UploadPage> {
       setState(() => _isProcessing = false);
     }
   }
-
+  String? error;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,6 +124,20 @@ class _UploadPageState extends State<UploadPage> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 10),
+            const Text('Version: 6'),
+            Text('Launch Mode: ${PWAInstall().launchMode?.shortLabel}'),
+            Text('Has Install Prompt: ${PWAInstall().hasPrompt}'),
+            if(PWAInstall().installPromptEnabled) ElevatedButton(
+                onPressed: () {
+                  try {
+                    PWAInstall().promptInstall_();
+                  } catch (e) {
+                    setState(() {
+                      error = e.toString();
+                    });
+                  }
+                },
+                child: const Text('Install')),
             const SizedBox(height: 40),
             _isProcessing
                 ? const CircularProgressIndicator()
