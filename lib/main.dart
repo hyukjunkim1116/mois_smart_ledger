@@ -21,9 +21,6 @@ class MoisSmartLedger extends StatelessWidget {
         useMaterial3: true,
         colorSchemeSeed: Colors.indigo,
         brightness: Brightness.light,
-        textTheme: GoogleFonts.notoSansKrTextTheme(
-          Theme.of(context).textTheme,
-        ),
       ),
       home: const UploadPage(),
     );
