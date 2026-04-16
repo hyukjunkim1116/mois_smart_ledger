@@ -1,12 +1,10 @@
-import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-
-// 1. excel 패키지에 별칭(as excel_pkg)을 붙입니다.
 import 'package:excel/excel.dart' as excel_pkg;
-import 'package:google_fonts/google_fonts.dart';
-
+import 'package:pwa_install/pwa_install.dart'; // 임포트 추가
 void main() {
+  PWAInstall().setup();
   runApp(const MoisSmartLedger());
 }
 
@@ -110,7 +108,15 @@ class _UploadPageState extends State<UploadPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('MOIS 명칭 중복 확인하기')),
+      appBar: AppBar(title: const Text('MOIS 명칭 중복 확인하기'),actions: [
+        if (PWAInstall().installPromptEnabled) // 설치가 가능한 환경일 때만 아이콘 표시
+          IconButton(
+            icon: const Icon(Icons.download_for_offline),
+            onPressed: () {
+              PWAInstall().promptInstall_(); // 설치 프롬프트 실행
+            },
+          ),
+      ],),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(20),
