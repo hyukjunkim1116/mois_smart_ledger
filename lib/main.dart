@@ -107,7 +107,7 @@ class _UploadPageState extends State<UploadPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('MOIS 비영리법인 명칭 중복 확인하기')),
+      appBar: AppBar(title: const Text('MOIS 비영리법인 명칭 중복 확인하기 테스토')),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(20),
