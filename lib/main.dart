@@ -2,9 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:excel/excel.dart' as excel_pkg;
-import 'package:pwa_install/pwa_install.dart'; // 임포트 추가
 void main() {
-  PWAInstall().setup();
   runApp(const MoisSmartLedger());
 }
 
@@ -124,20 +122,6 @@ class _UploadPageState extends State<UploadPage> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 10),
-            const Text('Version: 6'),
-            Text('Launch Mode: ${PWAInstall().launchMode?.shortLabel}'),
-            Text('Has Install Prompt: ${PWAInstall().hasPrompt}'),
-            if(PWAInstall().installPromptEnabled) ElevatedButton(
-                onPressed: () {
-                  try {
-                    PWAInstall().promptInstall_();
-                  } catch (e) {
-                    setState(() {
-                      error = e.toString();
-                    });
-                  }
-                },
-                child: const Text('Install')),
             const SizedBox(height: 40),
             _isProcessing
                 ? const CircularProgressIndicator()

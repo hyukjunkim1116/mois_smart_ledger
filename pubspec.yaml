@@ -32,7 +32,6 @@ dependencies:
     sdk: flutter
   file_picker: ^8.0.0  # 최신 버전 확인 필요
   excel: ^4.0.0       # 최신 버전 확인 필요
-  pwa_install: ^0.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
