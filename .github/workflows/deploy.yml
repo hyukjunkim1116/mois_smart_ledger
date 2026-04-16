@@ -32,3 +32,11 @@ jobs:
       # 5. 404 에러 방지 (index.html을 404.html로 복사)
       - name: Create 404 page
         run: cp build/web/index.html build/web/404.html
+
+      # 6. GitHub Pages로 배포
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DEPLOY_SECRET_KEY }}
+          publish_dir: ./build/web
+          publish_branch: gh-pages # 빌드 결과물이 저장될 브랜치
