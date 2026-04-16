@@ -27,7 +27,7 @@ jobs:
       # 저장소 이름이 'mois_smart_ledger'라고 가정합니다.
       # 실제 저장소 이름으로 반드시 수정하세요!
       - name: Build Web
-        run: flutter build web --release --base-href "/mois-smart-ledger/" --pwa-strategy=offline-first
+        run: flutter build web --release --base-href "/mois_smart_ledger/" --pwa-strategy=offline-first
 
       # 5. 404 에러 방지 (index.html을 404.html로 복사)
       - name: Create 404 page
