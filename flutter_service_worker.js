@@ -13,10 +13,10 @@ const RESOURCES = {"assets/assets/fonts/Pretendard-Bold.otf": "f8a9b84216af5155f
 "assets/AssetManifest.bin": "95cf3e5fb3ba678daffadf7db0ba9fbe",
 "assets/NOTICES": "fc1535627cbfbcb92c9f14e7b53de98f",
 "assets/FontManifest.json": "519dda81d1e8a914a97dbbdd7bdbfa04",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"favicon.png": "2752a278eb19b4054cbb92a8766074e5",
 "manifest.json": "d66b2b01f5a8f02634a0c931b853755b",
-"index.html": "a9252ab37576eeb306d734f1aa88583c",
-"/": "a9252ab37576eeb306d734f1aa88583c",
+"index.html": "ee9bbf1c4a5dc85e238cc424f35ae363",
+"/": "ee9bbf1c4a5dc85e238cc424f35ae363",
 "canvaskit/skwasm.js.symbols": "741d50ffba71f89345996b0aa8426af8",
 "canvaskit/chromium/canvaskit.js.symbols": "4525682ef039faeb11f24f37436dca06",
 "canvaskit/chromium/canvaskit.wasm": "f5934e694f12929ed56a671617acd254",
@@ -30,10 +30,8 @@ const RESOURCES = {"assets/assets/fonts/Pretendard-Bold.otf": "f8a9b84216af5155f
 "flutter.js": "c71a09214cb6f5f8996a531350400a9a",
 "main.dart.js": "d2b77e60071d37f4e245775072849d19",
 "version.json": "68390a81a8c74acb1bb568e4863841de",
-"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1"};
+"icons/favicon-192x192.png": "2752a278eb19b4054cbb92a8766074e5",
+"icons/favicon-512x512.png": "0e59eb50f72e1fa1eb664bf65717fda6"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
