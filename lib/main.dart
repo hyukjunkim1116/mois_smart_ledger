@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MOIS 명칭 중복 검색하기',
+        title: const Text('MOIS 명칭 검색하기',
             style: TextStyle(fontWeight: FontWeight.w800)),
         centerTitle: true,
         backgroundColor: Colors.indigo,
