@@ -60,8 +60,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-    - assets/data.xlsx  # <--- 이 줄이 반드시 있어야 합니다. (들여쓰기 주의!)
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

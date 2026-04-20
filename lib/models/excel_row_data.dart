@@ -5,7 +5,7 @@ class ExcelRowData {
   final String law;          // 근거법률
   final String type;
 
-  ExcelRowData({
+  const ExcelRowData({
     required this.permitDate,
     required this.name,
     required this.purpose,

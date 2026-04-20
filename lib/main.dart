@@ -28,13 +28,6 @@ class _SearchPageState extends State<SearchPage> {
   final ExcelService _excelService = ExcelService();
   final TextEditingController _searchController = TextEditingController();
   Map<String, List<ExcelRowData>> _groupedResults = {};
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _excelService.loadData().then((_) => setState(() => _isLoading = false));
-  }
 
   void _handleSearch(String query) {
     setState(() {
@@ -46,14 +39,12 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MOIS 명칭 중복 검색', style: TextStyle(fontWeight: FontWeight.w800)),
+        title: const Text('MOIS 명칭 중복 검색하기', style: TextStyle(fontWeight: FontWeight.w800)),
         centerTitle: true,
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : Column(
+      body: Column(
         children: [
           _buildSearchInput(),
           _buildResultList(),
