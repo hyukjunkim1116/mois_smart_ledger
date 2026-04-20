@@ -137,104 +137,107 @@ class _SearchPageState extends State<SearchPage> {
         ? item.permitDate.split('T')[0]
         : item.permitDate;
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-
-      decoration: BoxDecoration(
-        color: Colors.indigo[50], // 기존 color를 여기로 이동
-        border: isLast
-            ? null // 마지막 아이템이면 보더 없음
-            : Border(
-          bottom: BorderSide(
-            color: Colors.indigo.withOpacity(0.2), // 선 색상 (연한 인디고)
-            width: 1, // 선 두께
+    return    SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.indigo[50], // 기존 color를 여기로 이동
+          border: isLast
+              ? null // 마지막 아이템이면 보더 없음
+              : Border(
+            bottom: BorderSide(
+              color: Colors.indigo.withOpacity(0.2), // 선 색상 (연한 인디고)
+              width: 1, // 선 두께
+            ),
           ),
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 상단 영역: 유형과 날짜
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Text(
-                '법인성격: ',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 상단 영역: 유형과 날짜
 
-                ),
-              ),
-              Text(
-                item.type.isEmpty ? '-' : item.type,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text(
+                  '법인성격: ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
 
+                  ),
                 ),
-              ),
-              const SizedBox(width: 4),
-              const Text('ㅣ',style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold) ,),
-              const SizedBox(width: 4),
-              const Text(
-                '허가연월일: ',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                displayDate,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Text(
-                '근거법률: ',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                Text(
+                  item.type.isEmpty ? '-' : item.type,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
 
+                  ),
                 ),
-              ),
-              Text(
-                item.law.isEmpty ? '-' : item.law,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(width: 4),
+                const Text('ㅣ',style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold) ,),
+                const SizedBox(width: 4),
+                const Text(
+                  '허가연월일: ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  displayDate,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text(
+                  '근거법률: ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
 
+                  ),
                 ),
-              ),
-              const SizedBox(width: 4),
-              const Text('ㅣ',style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold) ,),
-              const SizedBox(width: 4),
-              const Text(
-                '기능 및 목적: ',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                Text(
+                  item.law.isEmpty ? '-' : item.law,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+
+                  ),
                 ),
-              ),
-              Text(
-                item.purpose.isEmpty ? '-' : item.purpose,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(width: 4),
+                const Text('ㅣ',style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold) ,),
+                const SizedBox(width: 4),
+                const Text(
+                  '기능 및 목적: ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
-      ),
+                Text(
+                  item.purpose.isEmpty ? '-' : item.purpose,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      )
     );
   }
 
