@@ -178,15 +178,14 @@ class _SearchPageState extends State<SearchPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(width: 4),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
                     const Text(
-                      'ㅣ',
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      '허가연월일: ',
+                      '허가 연월일: ',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -201,7 +200,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -219,13 +218,12 @@ class _SearchPageState extends State<SearchPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      'ㅣ',
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(width: 4),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
                     const Text(
                       '기능 및 목적: ',
                       style: TextStyle(
