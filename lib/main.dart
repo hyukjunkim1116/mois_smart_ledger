@@ -143,6 +143,7 @@ class _SearchPageState extends State<SearchPage> {
 
     return Container(
         padding: const EdgeInsets.all(20),
+        width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.indigo[50], // 기존 color를 여기로 이동
           border: isLast
