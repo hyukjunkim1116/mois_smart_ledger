@@ -108,7 +108,7 @@ class _SearchPageState extends State<SearchPage> {
                       color: Colors.indigo,
                     ),
                   ),
-                  const SizedBox(width: 4), // 제목과 배지 사이의 간격
+                  const SizedBox(width: 2), // 제목과 배지 사이의 간격
                   Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
