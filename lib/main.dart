@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'services/excel_service.dart';
-import 'models/excel_row_data.dart';
+import 'models/raw_data.dart';
 
 void main() => runApp(const MoisSmartLedger());
 
@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MOIS 명칭 검색하기',
+        title: const Text('비영리법인 명칭 검색하기',
             style: TextStyle(fontWeight: FontWeight.w800)),
         centerTitle: true,
         backgroundColor: Colors.indigo,
@@ -161,7 +161,26 @@ class _SearchPageState extends State<SearchPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // 상단 영역: 유형과 날짜
-
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Text(
+                      '소관: ',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      item.remit.isEmpty ? '-' : item.remit,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -181,7 +200,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -201,7 +220,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -221,7 +240,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

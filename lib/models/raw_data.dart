@@ -4,12 +4,14 @@ class ExcelRowData {
   final String purpose;      // 목적
   final String law;          // 근거법률
   final String type;
+  final String remit;
 
   const ExcelRowData({
     required this.permitDate,
     required this.name,
     required this.purpose,
     required this.law,
-    required this.type
+    required this.type,
+    required this.remit
   });
 }
