@@ -1,11 +1,11 @@
 {
-    "name": "MOIS 명칭 검색",
-    "short_name": "MOIS 명칭 검색",
+    "name": "비영리법인 명칭 검색",
+    "short_name": "비영리법인 명칭 검색",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "MOIS 명칭 검색",
+    "description": "비영리법인 명칭 검색",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
