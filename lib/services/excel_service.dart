@@ -1,5 +1,5 @@
 
-import 'package:mois_smart_ledger/infrastructure/%ED%96%89%EC%A0%95%EC%95%88%EC%A0%84%EB%B6%80.dart';
+import 'package:mois_smart_ledger/infrastructure/repository.dart';
 
 import '../models/raw_data.dart';
 
@@ -13,7 +13,7 @@ class ExcelService {
 
     // 검색어와 데이터 모두 공백 제거 및 소문자화
     final cleanQuery = query.replaceAll(' ', '').toLowerCase();
-    final filtered = moisRawData.where((data) {
+    final filtered = DataRepository.all_data.where((data) {
       final cleanName = data.name.replaceAll(' ', '').toLowerCase();
 
       return cleanName.contains(cleanQuery);

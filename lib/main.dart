@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mois_smart_ledger/infrastructure/repository.dart';
 import 'services/excel_service.dart';
 import 'models/raw_data.dart';
 
@@ -13,7 +14,36 @@ class MoisSmartLedger extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme:
           ThemeData(fontFamily: 'Pretendard', colorSchemeSeed: Colors.indigo),
-      home: const SearchPage(),
+      home: const InitialLoader(),
+    );
+  }
+}
+
+class InitialLoader extends StatelessWidget {
+  const InitialLoader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: DataRepository.init(), // 데이터 초기화 호출
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          // 로딩 완료 시 메인 화면으로 이동
+          return const SearchPage();
+        } else {
+          // 로딩 중일 때 보여줄 UI
+          return const Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                ],
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }
@@ -57,7 +87,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _buildSearchInput() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(8),
       color: Colors.indigo.withOpacity(0.05),
       child: TextField(
         controller: _searchController,
@@ -111,7 +141,7 @@ class _SearchPageState extends State<SearchPage> {
                   const SizedBox(width: 2), // 제목과 배지 사이의 간격
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        const EdgeInsets.symmetric(horizontal: 4),
                     child: Text(
                       '${items.length}건',
                       style: const TextStyle(
@@ -164,23 +194,35 @@ class _SearchPageState extends State<SearchPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Text(
-                      '소관: ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 4),
+                      decoration: BoxDecoration(
+                        // 배경색: 테마의 주요 색상을 연하게 사용 (혹은 Colors.blue.withOpacity(0.1))
+                        color: Theme.of(context).primaryColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(20),
+                        // 알약 모양의 둥근 모서리
+                        border: Border.all(
+                          color: Theme.of(context)
+                              .primaryColor
+                              .withOpacity(0.3), // 옅은 테두리
+                          width: 1,
+                        ),
                       ),
-                    ),
-                    Text(
-                      item.remit.isEmpty ? '-' : item.remit,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
+                      child: Text(
+                        item.remit.isEmpty ? '-' : item.remit,
+                        style: TextStyle(
+                          fontSize: 12, // 뱃지 형태에서는 글자 크기를 살짝 줄이는 것이 더 예쁩니다.
+                          fontWeight: FontWeight.bold,
+                          color:
+                              Theme.of(context).primaryColor, // 글자색은 배경보다 진하게
+                        ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 6),
+
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
