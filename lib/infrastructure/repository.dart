@@ -7,6 +7,7 @@ import 'package:mois_smart_ledger/infrastructure/%EC%B2%98/%EB%B2%95%EC%A0%9C%EC
 import 'package:mois_smart_ledger/infrastructure/%EC%B2%98/%EC%8B%9D%ED%92%88%EC%9D%98%EC%95%BD%ED%92%88%EC%95%88%EC%A0%84%EC%B2%98.dart';
 import 'package:mois_smart_ledger/infrastructure/%EC%B2%98/%EC%9D%B8%EC%82%AC%EC%B2%98.dart';
 import 'package:mois_smart_ledger/infrastructure/%EC%B2%98/%EC%A7%80%EC%8B%9D%EC%9E%AC%EC%82%B0%EC%B2%98.dart';
+import 'package:mois_smart_ledger/infrastructure/%EC%B2%AD/%EB%86%8D%EC%B4%8C%EC%A7%84%ED%9D%A5%EC%B2%AD.dart';
 import 'package:mois_smart_ledger/infrastructure/%EC%B2%AD/%EB%B0%A9%EC%9C%84%EC%82%AC%EC%97%85%EC%B2%AD.dart';
 import 'package:mois_smart_ledger/infrastructure/%EC%B2%AD/%EC%82%B0%EB%A6%BC%EC%B2%AD.dart';
 import 'package:mois_smart_ledger/infrastructure/%EC%B2%AD/%EC%86%8C%EB%B0%A9%EC%B2%AD.dart';
@@ -77,6 +78,7 @@ class DataRepository {
       ...nfaRawData,
       ...kdcaRawData,
       ...kcgRawData,
+      ...rdaRawData
     ];
   }
 }
