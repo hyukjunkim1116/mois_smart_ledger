@@ -1,0 +1,68 @@
+import 'package:mois_smart_ledger/models/raw_data.dart';
+
+const List<ExcelRowData> acrcRawData = [
+  ExcelRowData(
+    permitDate: "09.10.16.",
+    name: "(사)EK윤리지식연구소",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "11.1.18.",
+    name: "(사)청렴코리아",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "11.9.29.",
+    name: "(사)반부패국민운동연합",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "13.2.19.",
+    name: "(사)한국부정부패방지연구원",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "13.3.8.",
+    name: "(사)공정사회실천연대",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "14.4.11.",
+    name: "(사)부패방지국민운동총연합",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "14.6.24.",
+    name: "(사)한국청렴운동본부",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+  ExcelRowData(
+    permitDate: "00.10.14.",
+    name: "(사)한국투명성기구",
+    purpose: "-",
+    law: "-",
+    type: "-",
+    remit: "국민권익위원회",
+  ),
+];

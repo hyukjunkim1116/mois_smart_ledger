@@ -131,17 +131,17 @@ class _SearchPageState extends State<SearchPage> {
               collapsedShape: const Border(),
               title: Row(
                 children: [
-                  Text(
+                  Expanded(
+                      child: Text(
                     name,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.indigo,
                     ),
-                  ),
+                  )),
                   const SizedBox(width: 2), // 제목과 배지 사이의 간격
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: Text(
                       '${items.length}건',
                       style: const TextStyle(
@@ -166,143 +166,84 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Widget _buildDetail(ExcelRowData item, bool isLast) {
-    // 날짜에서 'T' 이후 문자열 제거 (예: 2023-10-27T00:00:00 -> 2023-10-27)
     final displayDate = item.permitDate.contains('T')
         ? item.permitDate.split('T')[0]
         : item.permitDate;
 
     return Container(
-        padding: const EdgeInsets.all(20),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.indigo[50], // 기존 color를 여기로 이동
-          border: isLast
-              ? null // 마지막 아이템이면 보더 없음
-              : Border(
-                  bottom: BorderSide(
-                    color: Colors.indigo.withOpacity(0.2), // 선 색상 (연한 인디고)
-                    width: 1, // 선 두께
-                  ),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: isLast
+            ? null
+            : Border(
+                bottom: BorderSide(
+                  color: Colors.indigo.withOpacity(0.05),
+                  width: 1,
                 ),
-        ),
-        child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // 상단 영역: 유형과 날짜
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 4),
-                      decoration: BoxDecoration(
-                        // 배경색: 테마의 주요 색상을 연하게 사용 (혹은 Colors.blue.withOpacity(0.1))
-                        color: Theme.of(context).primaryColor.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(20),
-                        // 알약 모양의 둥근 모서리
-                        border: Border.all(
-                          color: Theme.of(context)
-                              .primaryColor
-                              .withOpacity(0.3), // 옅은 테두리
-                          width: 1,
-                        ),
-                      ),
-                      child: Text(
-                        item.remit.isEmpty ? '-' : item.remit,
-                        style: TextStyle(
-                          fontSize: 12, // 뱃지 형태에서는 글자 크기를 살짝 줄이는 것이 더 예쁩니다.
-                          fontWeight: FontWeight.bold,
-                          color:
-                              Theme.of(context).primaryColor, // 글자색은 배경보다 진하게
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+            decoration: BoxDecoration(
+              color: Colors.indigo.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: Text(
+              item.remit.isEmpty ? '-' : item.remit,
+              style: const TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                color: Colors.indigo,
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          _buildInfoRow(Icons.account_balance_outlined, '법인성격', item.type),
+          _buildInfoRow(Icons.calendar_today_outlined, '허가일자', displayDate),
+          _buildInfoRow(Icons.gavel_rounded, '근거법률', item.law),
+          _buildInfoRow(Icons.description_outlined, '기능/목적', item.purpose),
+        ],
+      ),
+    );
+  }
 
-                const SizedBox(height: 8),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '법인성격: ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      item.type.isEmpty ? '-' : item.type,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '허가 연월일: ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      displayDate,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '근거법률: ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      item.law.isEmpty ? '-' : item.law,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '기능 및 목적: ',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      item.purpose.isEmpty ? '-' : item.purpose,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            )));
+  Widget _buildInfoRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(icon, size: 14, color: Colors.indigo),
+          const SizedBox(width: 4),
+          SizedBox(
+            width: 70,
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 13,
+                color: Colors.black87,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              value.isEmpty ? '-' : value,
+              style: const TextStyle(
+                fontSize: 13,
+                color: Colors.black87,
+                fontWeight: FontWeight.w600,
+                height: 1.4,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
