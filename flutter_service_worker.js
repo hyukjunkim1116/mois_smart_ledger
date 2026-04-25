@@ -15,8 +15,9 @@ const RESOURCES = {"assets/assets/fonts/Pretendard-Bold.otf": "f8a9b84216af5155f
 "assets/FontManifest.json": "519dda81d1e8a914a97dbbdd7bdbfa04",
 "favicon.png": "2752a278eb19b4054cbb92a8766074e5",
 "manifest.json": "fa627b33f96ceeb4d1bb17608c6309b8",
-"index.html": "1ed3060eda546db16c55248b1467bd29",
-"/": "1ed3060eda546db16c55248b1467bd29",
+"robots.txt": "8bd16053cf84bc397a91b81ea8aacee4",
+"index.html": "14f2d6d5f9e95f23e837348b5e494a45",
+"/": "14f2d6d5f9e95f23e837348b5e494a45",
 "canvaskit/skwasm.js.symbols": "741d50ffba71f89345996b0aa8426af8",
 "canvaskit/chromium/canvaskit.js.symbols": "4525682ef039faeb11f24f37436dca06",
 "canvaskit/chromium/canvaskit.wasm": "f5934e694f12929ed56a671617acd254",
@@ -31,7 +32,8 @@ const RESOURCES = {"assets/assets/fonts/Pretendard-Bold.otf": "f8a9b84216af5155f
 "main.dart.js": "d70b656b638963354028869e913fc0a9",
 "version.json": "68390a81a8c74acb1bb568e4863841de",
 "icons/favicon-192x192.png": "2752a278eb19b4054cbb92a8766074e5",
-"icons/favicon-512x512.png": "0e59eb50f72e1fa1eb664bf65717fda6"};
+"icons/favicon-512x512.png": "0e59eb50f72e1fa1eb664bf65717fda6",
+"sitemap.xml": "4b8bfbad67bacb301566c59d3ded54f5"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
